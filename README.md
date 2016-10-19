@@ -15,3 +15,14 @@ This is not the whole story for sure, one need to answer the question of convert
 2. Modify the Pinyin in pre-processing. Even Pyinyin to Chinese chars is a one-to-many relationship. However, this "many" is generally lower than 20 (my personal hunch). So one only need to model this id as one additional feature to Pinyin, in this way, one only need a lookup table to do this thing.
 
 This is just some random thoughts.
+
+## General Todo list
+
++ [ ] Character-level ConvNets study.
++ [ ] Benchmark dataset translation (Chinese character to Pinyin)
++ [ ] First sample model trying.
+
+## Contacts
+
+Yuhuang Hu  
+Email: duguyue100@gmail.com
