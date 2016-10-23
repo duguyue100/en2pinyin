@@ -18,6 +18,7 @@ This is just some random thoughts.
 
 ## General Todo list
 
++ [x] Sample dataset with 20 news articles sampled.
 + [ ] Character-level ConvNets study.
 + [ ] Benchmark dataset translation (Chinese character to Pinyin)
 + [ ] First sample model trying.
