@@ -16,6 +16,8 @@ This is not the whole story for sure, one need to answer the question of convert
 
 This is just some random thoughts.
 
+In building the network, any character that is out of scope of ASCII is not considered.
+
 ## General Todo list
 
 + [x] Sample dataset with 20 news articles sampled.
