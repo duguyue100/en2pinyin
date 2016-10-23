@@ -22,6 +22,16 @@ This is just some random thoughts.
 + [ ] Benchmark dataset translation (Chinese character to Pinyin)
 + [ ] First sample model trying.
 
+## Requirements
+
++ `pinyin`
+
+The program will search for the environment variable `EN2PINYIN_PATH`, a easy way to set it is to add following path to your bash profile:
+
+```bash
+export EN2PINYIN_PATH = $HOME/.en2pinyin
+```
+
 ## Contacts
 
 Yuhuang Hu  
