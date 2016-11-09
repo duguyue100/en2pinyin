@@ -20,4 +20,7 @@ test-utils:
 test-conversion:
 	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/test_conversion.py
 
+test-text-gen:
+	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/test_text_gen.py
+
 cleanall:
