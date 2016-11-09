@@ -17,4 +17,7 @@ run:
 test-utils:
 	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/test_utils.py
 
+test-conversion:
+	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/test_conversion.py
+
 cleanall:

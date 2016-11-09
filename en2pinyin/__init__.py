@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 """Initialization file for en2pinyin package.
 
 Author: Yuhuang Hu
@@ -31,3 +32,14 @@ if not os.path.isdir(E2P_CN_DATA_PATH):
 
 if not os.path.isdir(E2P_EN_DATA_PATH):
     os.makedirs(E2P_EN_DATA_PATH)
+
+# Dictionary of Chinese punctuation to English one
+
+CH2EN_PUNC = {ord(f): ord(t)
+              for f, t in zip(
+                  u'，。！？【】（）％＃＠＆１２３４５６７８９０；：',
+                  u',.!?[]()%#@&1234567890;:')}
+EN2CH_PUNC = {ord(f): ord(t)
+              for f, t in zip(
+                  u',.!?[]()%#@&1234567890;:',
+                  u'，。！？【】（）％＃＠＆１２３４５６７８９０；：')}
