@@ -25,9 +25,9 @@ wubi2ch_dict = utils.load_wubi_ch_dict(
 
 utils.chinese_wubi(in_doc, out_doc, ch2wubi_dict)
 
-in_doc = utils.read_doc(os.path.join(e2p.E2P_DATA_PATH, "py", "gen_test_1.wb"))
+in_doc = utils.read_doc(os.path.join(e2p.E2P_DATA_PATH, "py", "gen_test_2.wb"))
 out_doc = utils.write_doc(os.path.join(e2p.E2P_DATA_PATH,
-                                       "py", "gen_test_1.cn"))
+                                       "py", "gen_test_2.cn"))
 
 # convert from Wubi to Chinese
 

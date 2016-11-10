@@ -102,7 +102,7 @@ while num_sec < 300:
     #  print (preds)
     #  next_index = sample(preds, 1) #diversity is 1
     next_char = indices_char[next_index]
-    if len(seed_string) > 50:
+    if len(seed_string) > 7:
         seed_string = seed_string[1:]+next_char
     else:
         seed_string = seed_string+next_char
