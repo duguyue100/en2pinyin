@@ -1,5 +1,6 @@
 """Text Generation Test.
 
+
 The example is taken from mineshmathew's char_rnn_karpathy_keras
 
 Author: Yuhuang Hu
@@ -69,7 +70,7 @@ print ('model is made')
 
 print (model.summary())
 
-for iteration in range(1, 6):
+for iteration in range(1, 10):
     print()
     print('-' * 50)
     print('Iteration', iteration)
@@ -86,7 +87,8 @@ print ('The generated text is')
 sys.stdout.write(seed_string)
 out_doc.write(seed_string)
 #  x=np.zeros((1, len(seed_string), len(chars)))
-for i in range(320):
+num_sec = 0
+while num_sec < 200:
     x = np.zeros((1, len(seed_string), len(chars)))
     for t, char in enumerate(seed_string):
         x[0, t, char_indices[char]] = 1.
@@ -100,6 +102,9 @@ for i in range(320):
     #  next_index = sample(preds, 1) #diversity is 1
     next_char = indices_char[next_index]
     seed_string = seed_string + next_char
+
+    if next_char == ".":
+        num_sec += 1
 
     #  print (seed_string)
     #  print ('##############')
