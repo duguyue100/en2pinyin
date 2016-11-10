@@ -19,7 +19,7 @@ import numpy as np
 import en2pinyin as e2p
 
 text = open(os.path.join(e2p.E2P_DATA_PATH, "py",
-                         "wb_shiji1.wb")).read().lower()
+                         "wb_shiji2.wb")).read().lower()
 print ('corpus length:', len(text))
 
 chars = sorted(list(set(text)))
@@ -58,6 +58,7 @@ model = Sequential()
 # minesh witout specifying the input_length
 model.add(LSTM(512, input_dim=len(chars), return_sequences=True))
 model.add(LSTM(512, return_sequences=True))
+model.add(LSTM(512, return_sequences=True))
 model.add(Dropout(0.2))
 model.add(TimeDistributed(Dense(len(chars))))
 model.add(Activation('softmax'))
@@ -70,7 +71,7 @@ print ('model is made')
 
 print (model.summary())
 
-for iteration in range(1, 10):
+for iteration in range(1, 20):
     print()
     print('-' * 50)
     print('Iteration', iteration)
@@ -80,15 +81,15 @@ for iteration in range(1, 10):
     print (history.history['loss'][0])
     print (history)
 
-out_doc = open(os.path.join(e2p.E2P_DATA_PATH, "py", "gen_test_1.wb"), "wb")
-seed_string = "fhq"
+out_doc = open(os.path.join(e2p.E2P_DATA_PATH, "py", "gen_test_2.wb"), "wb")
+seed_string = "fg"
 print ("seed string -->", seed_string)
 print ('The generated text is')
 sys.stdout.write(seed_string)
 out_doc.write(seed_string)
 #  x=np.zeros((1, len(seed_string), len(chars)))
 num_sec = 0
-while num_sec < 200:
+while num_sec < 300:
     x = np.zeros((1, len(seed_string), len(chars)))
     for t, char in enumerate(seed_string):
         x[0, t, char_indices[char]] = 1.
@@ -101,7 +102,10 @@ while num_sec < 200:
     #  print (preds)
     #  next_index = sample(preds, 1) #diversity is 1
     next_char = indices_char[next_index]
-    seed_string = seed_string + next_char
+    if len(seed_string) > 50:
+        seed_string = seed_string[1:]+next_char
+    else:
+        seed_string = seed_string+next_char
 
     if next_char == ".":
         num_sec += 1
