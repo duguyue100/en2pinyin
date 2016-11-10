@@ -19,7 +19,7 @@ import numpy as np
 import en2pinyin as e2p
 
 text = open(os.path.join(e2p.E2P_DATA_PATH, "py",
-                         "wb_shiji2.wb")).read().lower()
+                         "wb_poem.wb")).read().lower()
 print ('corpus length:', len(text))
 
 chars = sorted(list(set(text)))
@@ -27,7 +27,7 @@ print('total chars:', len(chars))
 char_indices = dict((c, i) for i, c in enumerate(chars))
 indices_char = dict((i, c) for i, c in enumerate(chars))
 
-maxlen = 40
+maxlen = 150
 step = 1
 sentences = []
 next_chars = []
@@ -71,7 +71,7 @@ print ('model is made')
 
 print (model.summary())
 
-for iteration in range(1, 20):
+for iteration in range(1, 30):
     print()
     print('-' * 50)
     print('Iteration', iteration)
@@ -82,14 +82,14 @@ for iteration in range(1, 20):
     print (history)
 
 out_doc = open(os.path.join(e2p.E2P_DATA_PATH, "py", "gen_test_2.wb"), "wb")
-seed_string = "fg"
+seed_string = "mq"
 print ("seed string -->", seed_string)
 print ('The generated text is')
 sys.stdout.write(seed_string)
 out_doc.write(seed_string)
 #  x=np.zeros((1, len(seed_string), len(chars)))
 num_sec = 0
-while num_sec < 300:
+while num_sec < 40:
     x = np.zeros((1, len(seed_string), len(chars)))
     for t, char in enumerate(seed_string):
         x[0, t, char_indices[char]] = 1.
@@ -102,7 +102,7 @@ while num_sec < 300:
     #  print (preds)
     #  next_index = sample(preds, 1) #diversity is 1
     next_char = indices_char[next_index]
-    if len(seed_string) > 7:
+    if len(seed_string) > 100:
         seed_string = seed_string[1:]+next_char
     else:
         seed_string = seed_string+next_char
