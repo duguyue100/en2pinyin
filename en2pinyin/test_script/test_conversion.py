@@ -9,9 +9,9 @@ import os
 import en2pinyin as e2p
 from en2pinyin import utils
 
-in_doc = utils.read_doc(os.path.join(e2p.E2P_CN_DATA_PATH, "cn_shiji1.cn"))
+in_doc = utils.read_doc(os.path.join(e2p.E2P_CN_DATA_PATH, "cn_shiji2.cn"))
 out_doc = utils.write_doc(os.path.join(e2p.E2P_DATA_PATH,
-                                       "py", "wb_shiji1.wb"))
+                                       "py", "wb_shiji2.wb"))
 
 ch2wubi_dict = utils.load_ch_wubi_dict(
                     os.path.join(e2p.E2P_PACKAGE_DICT_PATH,
