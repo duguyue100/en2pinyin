@@ -23,4 +23,7 @@ test-conversion:
 test-text-gen:
 	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/test_text_gen.py
 
+convert-text:
+	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/convert_text.py --input-doc $(IN) --output-doc $(OUT) --convert-type $(TYPE)
+
 cleanall:

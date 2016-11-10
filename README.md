@@ -22,8 +22,8 @@ In building the network, any character that is out of scope of ASCII is not cons
 
 + [x] Sample dataset with 20 news articles sampled.
 + [ ] Character-level ConvNets study.
-+ [ ] Benchmark dataset translation (Chinese character to Pinyin)
-+ [ ] First sample model trying.
++ [x] Benchmark dataset translation (Chinese character to Pinyin)
++ [x] First sample model trying.
 
 ## Requirements
 
@@ -34,6 +34,21 @@ The program will search for the environment variable `EN2PINYIN_PATH`, a easy wa
 ```bash
 export EN2PINYIN_PATH = $HOME/.en2pinyin
 ```
+
+## Tools
+
+### `convert-text`
+
+This tool would help you convert a Chinese given text to Wubi encoding or vice versa.
+All the data is saved in `EN2PINYIN_PATH/data". One example of using this tool is:
+
+```bash
+make convert-text IN=cn/cn_poem.cn OUT=py/wb_poem.wb TYPE=ch2wb
+```
+
+The above command will take `cn_poem.cn` file and transform to `wb_poem.wb`
+from Chinese to Wubi encoding. You can use `wb2ch` as a different conversion
+type for translating a given Wubi document to Chinese text.
 
 ## Contacts
 
