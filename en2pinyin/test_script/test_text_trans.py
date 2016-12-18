@@ -10,6 +10,8 @@ import os
 import cPickle as pickle
 
 import numpy as np
+from keras.models import Sequential
+from keras.layers import Activation
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 import seq2seq
 from seq2seq.models import Seq2Seq
@@ -97,11 +99,14 @@ print ("[MESSAGE] Vectorization completed")
 print ("[MESSAGE] Build Model...")
 BATCH_SIZE = 128
 
-model = Seq2Seq(input_dim=input_dim, input_length=MAX_CHAR,
-                hidden_dim=100, output_length=MAX_CHAR, output_dim=output_dim,
-                depth=4)
+model = Sequential()
 
-model.compile(loss="mse", optimizer="rmsprop",
+model.add(Seq2Seq(input_dim=input_dim, input_length=MAX_CHAR,
+                  hidden_dim=100, output_length=MAX_CHAR,
+                  output_dim=output_dim, depth=4))
+model.add(Activation("softmax"))
+
+model.compile(loss="categorical_crossentropy", optimizer="rmsprop",
               metrics=["accuracy"])
 
 model.summary()
