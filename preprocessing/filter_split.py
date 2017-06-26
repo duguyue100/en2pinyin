@@ -12,8 +12,6 @@ import re
 import subprocess
 import sys
 
-import nltk
-
 importlib.reload(sys)
 # sys.setdefaultencoding('utf8')
 
@@ -91,7 +89,6 @@ if __name__ == '__main__':
     target_file_path = sys.argv[2]
 
     logging.info("Filtering files: " + source_file_path + " " + target_file_path)
-    sentence_detector = nltk.data.load('tokenizers/punkt/english.pickle')
     source_linecount, target_linecount = wc([source_file_path, target_file_path])
 
     try:
