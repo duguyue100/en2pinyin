@@ -29,4 +29,7 @@ test-translation:
 convert-text:
 	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/convert_text.py --input-doc $(IN) --output-doc $(OUT) --convert-type $(TYPE)
 
+wubi-dictionary:
+	PYTHONPATH=$(PYTHONPATH) python ./en2pinyin/test_script/test_wubi_dict.py
+
 cleanall:
